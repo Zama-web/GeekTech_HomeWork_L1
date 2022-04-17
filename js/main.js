@@ -37,48 +37,6 @@ const basketTotal = document.getElementById('total');
 const searchBtn = document.getElementById('search__btn');
 
 
-// НАЧАЛО -------------------------
-// поиск с помощью регулярных выражений
-
-const text = document.querySelectorAll('wrapper').innerText;
-const searchInput = document.getElementById('search__input');
-
-searchInput.addEventListener('input', () => {
-    const inputValue = searchInput.value;
-
-    if (inputValue === '') {
-        document.querySelectorAll('wrapper').innerHTML = text;
-        return;
-    }
-
-    const regexp_1 = new RegExp(inputValue, 'gi');
-    console.log(regexp_1);
-
-    const regexp_2 = new RegExp(`\\b\\w*(${inputValue})\\w*\\b`, 'gi');
-    console.log(regexp_2);
-
-    // let result = text
-    //     .replace(regexp_2, function (a, group) {
-    //         return `<span>${a}</span>`;
-    //     })
-    //     .replace(regexp_1, function (a, group) {
-    //         return `<b>${a}</b>`;
-    //     });
-
-    // document.querySelectorAll('wrapper').innerHTML = result;
-
-    // Выдает ошибку - "main.js:59 Uncaught TypeError: Cannot read properties of undefined (reading 'replace')
-    //     at HTMLInputElement.<anonymous> (main.js:59:23)
-    //     (anonymous) @ main.js:59"
-
-
-})
-
-
-// КОНЕЦ ----------------------------
-
-
-
 products.forEach(product => {
     productsId.innerHTML += `
             <div class="col-lg-3 mb-3">
