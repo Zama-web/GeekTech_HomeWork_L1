@@ -193,19 +193,40 @@ function deleteToBasket(e) {
 
 }
 
-
-
-
-
 // hendleAd.hendleShow(); // всплывающее окно рекламы
 
 hendleAd.closeBtn.addEventListener('click', hendleAd.hideAd);
 
 
+/*******************РЕГУЛЯРКА - НАЧАЛО****************/
 
-// ДЗ -> Создать кнопку "удалить из корзины" и по клику уменшать 
-// totalSumm, count  и в localstorage
+const searchInput = document.getElementById('search__input');
+const getText = document.querySelector('.container').textContent;
 
+searchBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    const inputValue = searchInput.value;
+
+    if (inputValue === '') {
+        document.querySelector('.resultText').innerHTML = getText
+        return;
+    }
+    
+    const regexp_1 = new RegExp(inputValue, 'gi');
+    const regexp_2 = new RegExp(`\\b\\w*(${inputValue})\\w*\\b`, 'gi');
+
+    const result = getText
+        .replace(regexp_2, function (a) {
+            return `<span>${a}</span>`
+        })
+        .replace(regexp_1, function (a) {
+            return `<b>${a}</b>`
+        });
+    
+    document.querySelector('.resultText').innerHTML = result;
+})
+
+/*******************РЕГУЛЯРКА - КОНЕЦ****************/
 
 
 
